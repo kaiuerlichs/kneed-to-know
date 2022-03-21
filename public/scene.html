@@ -10,8 +10,8 @@
             AFRAME.registerComponent('clickhandler', {
                 init: function () {
                     this.el.addEventListener('click', () => {
-                        this.el.setAttribute('material', 'color: #0CCE6B;');
-                        setTimeout(() => {this.el.setAttribute('material', 'color: #EF2D56;');}, 1000);
+                        this.el.setAttribute('material', 'color: #96C9DC;');
+                        setTimeout(() => {this.el.setAttribute('material', 'color: #D2FCAC;');}, 1000);
                     });
                 },
             });
@@ -32,31 +32,11 @@
         <a-scene test id="scene" emitevents="true" embedded arjs vr-mode-ui="enabled: false" renderer="logarithmicDepthBuffer: true;" gesture-detector>
             <a-entity id="injector" cursor="rayOrigin: mouse; fuseTimeout: 0;" raycaster="objects: .clickable"></a-entity>
             <a-marker preset="hiro" rotation="0 180 0">
-                <a-entity rotation="0 180 0" gesture-handler>
+                <a-entity gesture-handler>
                     <a-entity id="model" position="0 3 0" gltf-model="./model/bone/Bone.glb" ></a-entity>
                     <a-entity id="model" position="0 3 0" gltf-model="./model/skin/KneeSkin.glb" ></a-entity>
                     <a-entity id="model" position="0 3 0" gltf-model="./model/bone/Bone.glb" ></a-entity>
-                    <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0 0.1 -1.2" clickhandler ></a-sphere>
-                    <a-box color="#EF2D56" class="clickable" depth="0.2" width="0.2" height="0.2" position="0 0.1 -0.8" clickhandler ></a-box>
-                    <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0 0.1 -0.4" clickhandler ></a-sphere>
-                    <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0 0.1 0" clickhandler ></a-sphere>
-                    <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0 0.1 0.4" clickhandler ></a-sphere>
-                    <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0 0.1 0.8" clickhandler ></a-sphere>
-                    <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0 0.1 1.2" clickhandler ></a-sphere>
-                    <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="-0.4 0.1 -1.2" clickhandler ></a-sphere>
-                    <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="-0.4 0.1 -0.8" clickhandler ></a-sphere>
-                    <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="-0.4 0.1 -0.4" clickhandler ></a-sphere>
-                    <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="-0.4 0.1 0" clickhandler ></a-sphere>
-                    <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="-0.4 0.1 0.4" clickhandler ></a-sphere>
-                    <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="-0.4 0.1 0.8" clickhandler ></a-sphere>
-                    <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="-0.4 0.1 1.2" clickhandler ></a-sphere>
-                    <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0.4 0.1 -1.2" clickhandler ></a-sphere>
-                    <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0.4 0.1 -0.8" clickhandler ></a-sphere>
-                    <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0.4 0.1 -0.4" clickhandler ></a-sphere>
-                    <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0.4 0.1 0" clickhandler ></a-sphere>
-                    <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0.4 0.1 0.4" clickhandler ></a-sphere>
-                    <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0.4 0.1 0.8" clickhandler ></a-sphere>
-                    <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0.4 0.1 1.2" clickhandler ></a-sphere>
+                    <a-sphere color="#D2FCAC" class="clickable" radius="0.15" position="0.055 3.571 0.801" clickhandler material="opacity: 0.5; transparent: true"></a-sphere>></a-sphere>
                 </a-entity>
             </a-marker>
             <a-entity camera></a-entity>
