@@ -1,5 +1,6 @@
 <html>
     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
     <!-- we import arjs version without NFT but with marker + location based support -->
     <script src="./aframe-ar.js"></script>
 
@@ -28,11 +29,13 @@
             })
         </script>
 
-        <a-scene test id="scene" emitevents="true" embedded arjs vr-mode-ui="enabled: false" renderer="logarithmicDepthBuffer: true;">
+        <a-scene test id="scene" emitevents="true" embedded arjs vr-mode-ui="enabled: false" renderer="logarithmicDepthBuffer: true;" gesture-detector>
             <a-entity id="injector" cursor="rayOrigin: mouse; fuseTimeout: 0;" raycaster="objects: .clickable"></a-entity>
             <a-marker preset="hiro">
-                <a-entity id="model" position="0 0 0" scale="0.05 0.05 0.05" gltf-model="./model/book/scene.gltf"></a-entity>
-                <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0 0.1 -1.2" clickhandler></a-sphere>
+                <a-entity id="model" position="0 3 0" gltf-model="./model/bone/Bone.glb" gesture-handler></a-entity>
+                <a-entity id="model" position="0 3 0" gltf-model="./model/skin/KneeSkin.glb" gesture-handler></a-entity>
+                <a-entity id="model" position="0 3 0" gltf-model="./model/bone/Bone.glb" gesture-handler></a-entity>
+                <!-- <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0 0.1 -1.2" clickhandler></a-sphere>
                 <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0 0.1 -0.8" clickhandler></a-sphere>
                 <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0 0.1 -0.4" clickhandler></a-sphere>
                 <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0 0.1 0" clickhandler></a-sphere>
@@ -52,7 +55,7 @@
                 <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0.4 0.1 0" clickhandler></a-sphere>
                 <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0.4 0.1 0.4" clickhandler></a-sphere>
                 <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0.4 0.1 0.8" clickhandler></a-sphere>
-                <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0.4 0.1 1.2" clickhandler></a-sphere>
+                <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0.4 0.1 1.2" clickhandler></a-sphere> -->
             </a-marker>
             <a-entity camera></a-entity>
         </a-scene>
