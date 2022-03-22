@@ -15,7 +15,7 @@
                 },
             });
 
-            AFRAME.registerComponent("test", {
+            AFRAME.registerComponent("cast_injector", {
                 init: function () {
                     let injector = document.getElementById("injector")
                     let event = new Event("nodesReady")
@@ -26,14 +26,57 @@
                     }, 5000);
                 }
             })
+
+            window.addEventListener("message", (event) => {
+                message = event.data.split(";")
+                if(message[0] == "layer"){
+                    if(message[2] == "show"){
+                        switch (message[1]) {
+                            case "skin":
+                                document.getElementById("skin").setAttribute("visible",true)
+                                break;
+
+                            case "bone":
+                                document.getElementById("bone").setAttribute("visible",true)
+                                break;
+
+                            case "tendon":
+                                document.getElementById("tendon").setAttribute("visible",true)
+                                break;
+                        
+                            default:
+                                break;
+                        }
+                    }
+                    else if(message[2] == "hide"){
+                        switch (message[1]) {
+                            case "skin":
+                                document.getElementById("skin").setAttribute("visible",false)
+                                break;
+                                
+                            case "bone":
+                                document.getElementById("bone").setAttribute("visible",false)
+                                break;
+
+                            case "tendon":
+                                document.getElementById("tendon").setAttribute("visible",false)
+                                break;
+                        
+                            default:
+                                break;
+                        }
+                    }
+                }
+            })
         </script>
 
-        <a-scene test id="scene" emitevents="true" embedded arjs vr-mode-ui="enabled: false" renderer="logarithmicDepthBuffer: true;" gesture-detector>
+        <a-scene cast_injector id="scene" emitevents="true" embedded arjs vr-mode-ui="enabled: false" renderer="logarithmicDepthBuffer: true;" gesture-detector>
             <a-entity id="injector" cursor="rayOrigin: mouse; fuseTimeout: 0;" raycaster="objects: .clickable"></a-entity>
-            <a-marker preset="hiro" rotation="0 180 0">
+            <a-marker preset="hiro" rotation="0 0 0">
                 <a-entity gesture-handler>
-                    <a-entity id="model" position="0 3 0" gltf-model="./model/bone/SkelBone.gltf" ></a-entity>
-                    <!-- <a-entity id="model" position="0 3 0" gltf-model="./model/skin/KneeSkin.glb" ></a-entity> -->
+                    <a-entity id="bone" position="0 3 0" gltf-model="./model/bone/SkelBone.gltf" ></a-entity>
+                    <a-entity id="tendon" position="0 3 0" gltf-model="./model/tendon_ligaments/TendLig.gltf" ></a-entity>
+                    <a-entity id="skin" position="0 3 0" gltf-model="./model/skin/KneeSkin.gltf" ></a-entity>
                     <a-sphere color="#D2FCAC" class="clickable" radius="0.15" position="0.055 3.571 0.801" clickhandler material="opacity: 0.5; transparent: true"></a-sphere>></a-sphere>
                 </a-entity>
             </a-marker>

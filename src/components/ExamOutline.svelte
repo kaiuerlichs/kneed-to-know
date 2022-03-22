@@ -1,19 +1,13 @@
 <script>
-    import { createEventDispatcher } from 'svelte';
-    const dispatch = createEventDispatcher();
-    function closeView(){
-        dispatch("close")
-    }
+    import TitleBar from "./TitleBar.svelte"
 
     export let config = "";
     config = config;
 
 </script>
 
-<div class="flex align-items-center place-content-center h-full w-full relative px-8">
+<div class="h-full w-full relative p-8">
 
-    <span class="text-xl">
-        Exam Outline
-    </span>
+    <TitleBar text="Exam Outline" on:close/>
 
 </div>
