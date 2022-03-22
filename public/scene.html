@@ -1,7 +1,6 @@
 <html>
-    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <script src="./aframe.min.js"></script>
     <script src="./arjs-gestures.js"></script>
-    <!-- we import arjs version without NFT but with marker + location based support -->
     <script src="./aframe-ar.js"></script>
 
     <body style="margin : 0px; overflow: hidden;">
@@ -33,14 +32,13 @@
             <a-entity id="injector" cursor="rayOrigin: mouse; fuseTimeout: 0;" raycaster="objects: .clickable"></a-entity>
             <a-marker preset="hiro" rotation="0 180 0">
                 <a-entity gesture-handler>
-                    <a-entity id="model" position="0 3 0" gltf-model="./model/bone/Bone.glb" ></a-entity>
-                    <a-entity id="model" position="0 3 0" gltf-model="./model/skin/KneeSkin.glb" ></a-entity>
-                    <a-entity id="model" position="0 3 0" gltf-model="./model/bone/Bone.glb" ></a-entity>
+                    <a-entity id="model" position="0 3 0" gltf-model="./model/bone/SkelBone.gltf" ></a-entity>
+                    <!-- <a-entity id="model" position="0 3 0" gltf-model="./model/skin/KneeSkin.glb" ></a-entity> -->
                     <a-sphere color="#D2FCAC" class="clickable" radius="0.15" position="0.055 3.571 0.801" clickhandler material="opacity: 0.5; transparent: true"></a-sphere>></a-sphere>
                 </a-entity>
             </a-marker>
             <a-entity camera></a-entity>
         </a-scene>
-    </body>
 
+    </body>
 </html>
