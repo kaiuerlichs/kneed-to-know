@@ -70,7 +70,7 @@
             })
         </script>
 
-        <a-scene cast_injector id="scene" emitevents="true" embedded arjs vr-mode-ui="enabled: false" renderer="logarithmicDepthBuffer: true;" gesture-detector>
+        <a-scene cast_injector id="scene" emitevents="true" embedded arjs vr-mode-ui="enabled: false" renderer="logarithmicDepthBuffer: true; colorManagement: true;" gesture-detector>
             <a-entity id="injector" cursor="rayOrigin: mouse; fuseTimeout: 0;" raycaster="objects: .clickable"></a-entity>
             <a-marker preset="hiro" rotation="0 0 0">
                 <a-entity gesture-handler>
