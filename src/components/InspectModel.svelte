@@ -132,7 +132,7 @@
     {/if}
 
     {#if showLandmarkPopup}
-        <div class="invisible lg:visible">
+        <div class="invisible lg:visible" transition:fade>
             <div class="absolute bottom-10 left-10 flex flex-row backdrop-blur-sm bg-white/30 text-white rounded-[20px] z-20 p-5 align-middle w-1/3">
                 <div class="backdrop-blur-sm bg-[#D2FCAC] text-black rounded-[20px] z-20 clickable my-auto">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 m-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -149,7 +149,7 @@
                 </div>
             </div>
         </div>
-        <div class="visible lg:invisible">
+        <div class="visible lg:invisible" transition:fade>
             <div class="w-3/4 h-full mx-auto">
                 <div class="fixed bottom-32 flex flex-row backdrop-blur-sm bg-white/30 text-white rounded-[20px] z-20 p-5 align-middle w-3/4 mx-auto">
                     <div class="backdrop-blur-sm bg-[#D2FCAC] text-black rounded-[12px] z-20 clickable my-auto">
