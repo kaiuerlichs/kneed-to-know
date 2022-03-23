@@ -6,16 +6,32 @@
     <body style="margin : 0px; overflow: hidden;">
 
         <script>
+            let showLandmarks = true;
+            let skinVisible = true;
+            let boneVisible = true;
+            let tendonVisible = true;
+
+            function sendSignal(sig){
+                let target = window.parent
+                target.postMessage(sig, window.origin)
+            }
+
             AFRAME.registerComponent('clickhandler', {
                 init: function () {
                     this.el.addEventListener('click', () => {
-                        this.el.setAttribute('material', 'color: #96C9DC;');
-                        setTimeout(() => {this.el.setAttribute('material', 'color: #D2FCAC;');}, 1000);
+                        landmarks = document.getElementsByClassName("landmark")
+
+                        Array.prototype.forEach.call(landmarks, function(landmark) {
+                            landmark.setAttribute('material', 'color: #D2FCAC;')
+                        })
+                        
+                        this.el.setAttribute('material', 'color: #F08CAE;');
+                        sendSignal("landmark;click;"+this.el.id)
                     });
                 },
             });
 
-            AFRAME.registerComponent("cast_injector", {
+            AFRAME.registerComponent("cast-injector", {
                 init: function () {
                     let injector = document.getElementById("injector")
                     let event = new Event("nodesReady")
@@ -27,17 +43,53 @@
                 }
             })
 
+            AFRAME.registerComponent("landmark-injector", {
+                init: function () {
+                    let entity = document.getElementById("main")
+                    fetch("./med_data/landmarks.json")
+                    .then(response => response.text())
+                    .then((data) => {
+                        let landmarks = JSON.parse(data)
+                        landmarks.layers.bone.forEach(element => {
+                            let mark = document.createElement("a-sphere")
+                            mark.setAttribute("id", element.id)
+                            mark.setAttribute("class", "landmark clickable")
+                            mark.setAttribute("color", "#D2FCAC")
+                            mark.setAttribute("radius", "0.15")
+                            mark.setAttribute("position", element.coord)
+                            mark.setAttribute("clickhandler", "")
+                            mark.setAttribute("material", "opacity: 0.5; transparent: true")
+                            mark.setAttribute("visible", false)
+                            entity.appendChild(mark)
+                        });
+                    })
+                }
+            })
+
             window.addEventListener("message", (event) => {
                 message = event.data.split(";")
                 if(message[0] == "layer"){
                     if(message[2] == "show"){
                         switch (message[1]) {
                             case "skin":
+                                skinVisible = true;
                                 document.getElementById("skin").setAttribute("visible",true)
+                                landmarks = document.getElementsByClassName("landmark")
+
+                                Array.prototype.forEach.call(landmarks, function(landmark) {
+                                    landmark.setAttribute("visible", false)
+                                })
                                 break;
 
                             case "bone":
                                 document.getElementById("bone").setAttribute("visible",true)
+                                if(showLandmarks && !skinVisible){
+                                    landmarks = document.getElementsByClassName("landmark")
+
+                                    Array.prototype.forEach.call(landmarks, function(landmark) {
+                                        landmark.setAttribute("visible", true)
+                                    })
+                                }
                                 break;
 
                             case "tendon":
@@ -51,11 +103,26 @@
                     else if(message[2] == "hide"){
                         switch (message[1]) {
                             case "skin":
+                                skinVisible = false;
                                 document.getElementById("skin").setAttribute("visible",false)
+
+                                if(showLandmarks){
+                                    landmarks = document.getElementsByClassName("landmark")
+
+                                    Array.prototype.forEach.call(landmarks, function(landmark) {
+                                        landmark.setAttribute("visible", true)
+                                    })
+                                }
+                                
                                 break;
                                 
                             case "bone":
                                 document.getElementById("bone").setAttribute("visible",false)
+                                landmarks = document.getElementsByClassName("landmark")
+
+                                Array.prototype.forEach.call(landmarks, function(landmark) {
+                                    landmark.setAttribute("visible", false)
+                                })
                                 break;
 
                             case "tendon":
@@ -67,17 +134,25 @@
                         }
                     }
                 }
+                else if (message[0] == "landmark"){
+                    if(message[1] == "reset"){
+                        landmarks = document.getElementsByClassName("landmark")
+
+                        Array.prototype.forEach.call(landmarks, function(landmark) {
+                            landmark.setAttribute('material', 'color: #D2FCAC;')
+                        })
+                    }
+                }
             })
         </script>
 
-        <a-scene cast_injector id="scene" emitevents="true" embedded arjs vr-mode-ui="enabled: false" renderer="logarithmicDepthBuffer: true; colorManagement: true;" gesture-detector>
+        <a-scene cast-injector id="scene" emitevents="true" embedded arjs vr-mode-ui="enabled: false" renderer="logarithmicDepthBuffer: true; colorManagement: true;" gesture-detector>
             <a-entity id="injector" cursor="rayOrigin: mouse; fuseTimeout: 0;" raycaster="objects: .clickable"></a-entity>
             <a-marker preset="hiro" rotation="0 0 0">
-                <a-entity gesture-handler>
+                <a-entity id="main" gesture-handler landmark-injector>
                     <a-entity id="bone" position="0 3 0" gltf-model="./model/bone/SkelBone.gltf" ></a-entity>
                     <a-entity id="tendon" position="0 3 0" gltf-model="./model/tendon_ligaments/TendLig.gltf" ></a-entity>
                     <a-entity id="skin" position="0 3 0" gltf-model="./model/skin/KneeSkin.gltf" ></a-entity>
-                    <a-sphere color="#D2FCAC" class="clickable" radius="0.15" position="0.055 3.571 0.801" clickhandler material="opacity: 0.5; transparent: true"></a-sphere>></a-sphere>
                 </a-entity>
             </a-marker>
             <a-entity camera></a-entity>
