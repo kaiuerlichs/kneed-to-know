@@ -1,0 +1,9 @@
+{
+    "name": "Kneed To Know",
+    "short_name": "Kneed2Know",
+    "theme_color": "#d2fcac",
+    "background_color": "#ffffff",
+    "display": "fullscreen",
+    "scope": "/",
+    "start_url": "/"
+  }

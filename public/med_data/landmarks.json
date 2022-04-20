@@ -1,0 +1,68 @@
+{
+    "layers": {
+        "bone": [
+            {
+                "id": "0",
+                "name": "Lateral epicondyle of femur",
+                "coord": "-0.410 3.673 0.170",
+                "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Euismod lacinia at quis risus sed vulputate odio. Amet risus nullam eget felis. Aliquam vestibulum morbi blandit cursus. Lectus nulla at volutpat diam ut venenatis tellus. Gravida arcu ac tortor dignissim convallis aenean et tortor. Commodo elit at imperdiet dui accumsan sit amet. At lectus urna duis convallis convallis. Ipsum dolor sit amet consectetur. Ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Turpis egestas maecenas pharetra convallis posuere morbi. Sagittis nisl rhoncus mattis rhoncus urna. Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus. Vulputate sapien nec sagittis aliquam malesuada. Venenatis tellus in metus vulputate eu."
+            },
+            {
+                "id": "1",
+                "name": "Medial epicondyle of femur",
+                "coord": "0.411 3.621 -0.049",
+                "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Euismod lacinia at quis risus sed vulputate odio. Amet risus nullam eget felis. Aliquam vestibulum morbi blandit cursus. Lectus nulla at volutpat diam ut venenatis tellus. Gravida arcu ac tortor dignissim convallis aenean et tortor. Commodo elit at imperdiet dui accumsan sit amet. At lectus urna duis convallis convallis. Ipsum dolor sit amet consectetur. Ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Turpis egestas maecenas pharetra convallis posuere morbi. Sagittis nisl rhoncus mattis rhoncus urna. Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus. Vulputate sapien nec sagittis aliquam malesuada. Venenatis tellus in metus vulputate eu."
+            },
+            {
+                "id": "2",
+                "name": "Head of fibula",
+                "coord": "-0.387 2.806 -0.187",
+                "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Euismod lacinia at quis risus sed vulputate odio. Amet risus nullam eget felis. Aliquam vestibulum morbi blandit cursus. Lectus nulla at volutpat diam ut venenatis tellus. Gravida arcu ac tortor dignissim convallis aenean et tortor. Commodo elit at imperdiet dui accumsan sit amet. At lectus urna duis convallis convallis. Ipsum dolor sit amet consectetur. Ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Turpis egestas maecenas pharetra convallis posuere morbi. Sagittis nisl rhoncus mattis rhoncus urna. Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus. Vulputate sapien nec sagittis aliquam malesuada. Venenatis tellus in metus vulputate eu."
+            },
+            {
+                "id": "3",
+                "name": "Medial tibial condyle",
+                "coord": "0.437 3.160 0.211",
+                "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Euismod lacinia at quis risus sed vulputate odio. Amet risus nullam eget felis. Aliquam vestibulum morbi blandit cursus. Lectus nulla at volutpat diam ut venenatis tellus. Gravida arcu ac tortor dignissim convallis aenean et tortor. Commodo elit at imperdiet dui accumsan sit amet. At lectus urna duis convallis convallis. Ipsum dolor sit amet consectetur. Ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Turpis egestas maecenas pharetra convallis posuere morbi. Sagittis nisl rhoncus mattis rhoncus urna. Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus. Vulputate sapien nec sagittis aliquam malesuada. Venenatis tellus in metus vulputate eu."
+            },
+            {
+                "id": "4",
+                "name": "Lateral tibial condyle",
+                "coord": "-0.383 3.105 0.075",
+                "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Euismod lacinia at quis risus sed vulputate odio. Amet risus nullam eget felis. Aliquam vestibulum morbi blandit cursus. Lectus nulla at volutpat diam ut venenatis tellus. Gravida arcu ac tortor dignissim convallis aenean et tortor. Commodo elit at imperdiet dui accumsan sit amet. At lectus urna duis convallis convallis. Ipsum dolor sit amet consectetur. Ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Turpis egestas maecenas pharetra convallis posuere morbi. Sagittis nisl rhoncus mattis rhoncus urna. Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus. Vulputate sapien nec sagittis aliquam malesuada. Venenatis tellus in metus vulputate eu."
+            },
+            {
+                "id": "5",
+                "name": "Medial surface of tibia",
+                "coord": "0.159 1.711 0.198",
+                "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Euismod lacinia at quis risus sed vulputate odio. Amet risus nullam eget felis. Aliquam vestibulum morbi blandit cursus. Lectus nulla at volutpat diam ut venenatis tellus. Gravida arcu ac tortor dignissim convallis aenean et tortor. Commodo elit at imperdiet dui accumsan sit amet. At lectus urna duis convallis convallis. Ipsum dolor sit amet consectetur. Ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Turpis egestas maecenas pharetra convallis posuere morbi. Sagittis nisl rhoncus mattis rhoncus urna. Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus. Vulputate sapien nec sagittis aliquam malesuada. Venenatis tellus in metus vulputate eu."
+            },
+            {
+                "id": "6",
+                "name": "Anterior border of tibia",
+                "coord": "-0.064 2.171 0.305",
+                "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Euismod lacinia at quis risus sed vulputate odio. Amet risus nullam eget felis. Aliquam vestibulum morbi blandit cursus. Lectus nulla at volutpat diam ut venenatis tellus. Gravida arcu ac tortor dignissim convallis aenean et tortor. Commodo elit at imperdiet dui accumsan sit amet. At lectus urna duis convallis convallis. Ipsum dolor sit amet consectetur. Ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Turpis egestas maecenas pharetra convallis posuere morbi. Sagittis nisl rhoncus mattis rhoncus urna. Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus. Vulputate sapien nec sagittis aliquam malesuada. Venenatis tellus in metus vulputate eu."
+            },
+            {
+                "id": "7",
+                "name": "Anterolateral tibial tubercle",
+                "coord": "-0.337 3.164 0.342",
+                "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Euismod lacinia at quis risus sed vulputate odio. Amet risus nullam eget felis. Aliquam vestibulum morbi blandit cursus. Lectus nulla at volutpat diam ut venenatis tellus. Gravida arcu ac tortor dignissim convallis aenean et tortor. Commodo elit at imperdiet dui accumsan sit amet. At lectus urna duis convallis convallis. Ipsum dolor sit amet consectetur. Ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Turpis egestas maecenas pharetra convallis posuere morbi. Sagittis nisl rhoncus mattis rhoncus urna. Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus. Vulputate sapien nec sagittis aliquam malesuada. Venenatis tellus in metus vulputate eu."
+            },
+            {
+                "id": "8",
+                "name": "Patella",
+                "coord": "0.048 3.705 0.697",
+                "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Euismod lacinia at quis risus sed vulputate odio. Amet risus nullam eget felis. Aliquam vestibulum morbi blandit cursus. Lectus nulla at volutpat diam ut venenatis tellus. Gravida arcu ac tortor dignissim convallis aenean et tortor. Commodo elit at imperdiet dui accumsan sit amet. At lectus urna duis convallis convallis. Ipsum dolor sit amet consectetur. Ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Turpis egestas maecenas pharetra convallis posuere morbi. Sagittis nisl rhoncus mattis rhoncus urna. Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus. Vulputate sapien nec sagittis aliquam malesuada. Venenatis tellus in metus vulputate eu."
+            },
+            {
+                "id": "9",
+                "name": "Tibial tuberosity",
+                "coord": "0.027 2.972 0.427",
+                "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Euismod lacinia at quis risus sed vulputate odio. Amet risus nullam eget felis. Aliquam vestibulum morbi blandit cursus. Lectus nulla at volutpat diam ut venenatis tellus. Gravida arcu ac tortor dignissim convallis aenean et tortor. Commodo elit at imperdiet dui accumsan sit amet. At lectus urna duis convallis convallis. Ipsum dolor sit amet consectetur. Ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Turpis egestas maecenas pharetra convallis posuere morbi. Sagittis nisl rhoncus mattis rhoncus urna. Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus. Vulputate sapien nec sagittis aliquam malesuada. Venenatis tellus in metus vulputate eu."
+            }
+        ],
+        "skin": [],
+        "tendon": []
+    }
+}

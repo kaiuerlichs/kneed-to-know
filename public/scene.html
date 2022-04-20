@@ -1,21 +1,37 @@
 <html>
-    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
-    <!-- we import arjs version without NFT but with marker + location based support -->
+    <script src="./aframe.min.js"></script>
+    <script src="./arjs-gestures.js"></script>
     <script src="./aframe-ar.js"></script>
 
     <body style="margin : 0px; overflow: hidden;">
 
         <script>
+            let showLandmarks = true;
+            let skinVisible = true;
+            let boneVisible = true;
+            let tendonVisible = true;
+
+            function sendSignal(sig){
+                let target = window.parent
+                target.postMessage(sig, window.origin)
+            }
+
             AFRAME.registerComponent('clickhandler', {
                 init: function () {
                     this.el.addEventListener('click', () => {
-                        this.el.setAttribute('material', 'color: #0CCE6B;');
-                        setTimeout(() => {this.el.setAttribute('material', 'color: #EF2D56;');}, 1000);
+                        landmarks = document.getElementsByClassName("landmark")
+
+                        Array.prototype.forEach.call(landmarks, function(landmark) {
+                            landmark.setAttribute('material', 'color: #D2FCAC;')
+                        })
+                        
+                        this.el.setAttribute('material', 'color: #F08CAE;');
+                        sendSignal("landmark;click;"+this.el.id)
                     });
                 },
             });
 
-            AFRAME.registerComponent("test", {
+            AFRAME.registerComponent("cast-injector", {
                 init: function () {
                     let injector = document.getElementById("injector")
                     let event = new Event("nodesReady")
@@ -26,36 +42,137 @@
                     }, 5000);
                 }
             })
+
+            AFRAME.registerComponent("landmark-injector", {
+                init: function () {
+                    let entity = document.getElementById("main")
+                    fetch("./med_data/landmarks.json")
+                    .then(response => response.text())
+                    .then((data) => {
+                        let landmarks = JSON.parse(data)
+                        landmarks.layers.bone.forEach(element => {
+                            let mark = document.createElement("a-sphere")
+                            mark.setAttribute("id", element.id)
+                            mark.setAttribute("class", "landmark clickable")
+                            mark.setAttribute("color", "#D2FCAC")
+                            mark.setAttribute("radius", "0.12")
+                            mark.setAttribute("position", element.coord)
+                            mark.setAttribute("clickhandler", "")
+                            mark.setAttribute("material", "opacity: 0.5; transparent: true")
+                            mark.setAttribute("visible", false)
+                            entity.appendChild(mark)
+                        });
+                    })
+                }
+            })
+
+            window.addEventListener("message", (event) => {
+                message = event.data.split(";")
+                if(message[0] == "layer"){
+                    if(message[2] == "show"){
+                        switch (message[1]) {
+                            case "skin":
+                                skinVisible = true;
+                                document.getElementById("skin").setAttribute("visible",true)
+                                landmarks = document.getElementsByClassName("landmark")
+
+                                Array.prototype.forEach.call(landmarks, function(landmark) {
+                                    landmark.setAttribute("visible", false)
+                                })
+                                break;
+
+                            case "bone":
+                                document.getElementById("bone").setAttribute("visible",true)
+                                if(showLandmarks && !skinVisible){
+                                    landmarks = document.getElementsByClassName("landmark")
+
+                                    Array.prototype.forEach.call(landmarks, function(landmark) {
+                                        landmark.setAttribute("visible", true)
+                                    })
+                                }
+                                break;
+
+                            case "tendon":
+                                document.getElementById("tendon").setAttribute("visible",true)
+                                break;
+                        
+                            default:
+                                break;
+                        }
+                    }
+                    else if(message[2] == "hide"){
+                        switch (message[1]) {
+                            case "skin":
+                                skinVisible = false;
+                                document.getElementById("skin").setAttribute("visible",false)
+
+                                if(showLandmarks){
+                                    landmarks = document.getElementsByClassName("landmark")
+
+                                    Array.prototype.forEach.call(landmarks, function(landmark) {
+                                        landmark.setAttribute("visible", true)
+                                    })
+                                }
+                                
+                                break;
+                                
+                            case "bone":
+                                document.getElementById("bone").setAttribute("visible",false)
+                                landmarks = document.getElementsByClassName("landmark")
+
+                                Array.prototype.forEach.call(landmarks, function(landmark) {
+                                    landmark.setAttribute("visible", false)
+                                })
+                                break;
+
+                            case "tendon":
+                                document.getElementById("tendon").setAttribute("visible",false)
+                                break;
+                        
+                            default:
+                                break;
+                        }
+                    }
+                }
+                else if (message[0] == "landmark"){
+                    if(message[1] == "reset"){
+                        landmarks = document.getElementsByClassName("landmark")
+
+                        Array.prototype.forEach.call(landmarks, function(landmark) {
+                            landmark.setAttribute('material', 'color: #D2FCAC;')
+                        })
+                    }
+                    else if(message[1] == "show"){
+                        showLandmarks = true;
+                        landmarks = document.getElementsByClassName("landmark")
+
+                        Array.prototype.forEach.call(landmarks, function(landmark) {
+                            landmark.setAttribute("visible", true)
+                        })
+                    }
+                    else if(message[1] == "hide"){
+                        showLandmarks = false;
+                        landmarks = document.getElementsByClassName("landmark")
+
+                        Array.prototype.forEach.call(landmarks, function(landmark) {
+                            landmark.setAttribute("visible", false)
+                        })
+                    }
+                }
+            })
         </script>
 
-        <a-scene test id="scene" emitevents="true" embedded arjs vr-mode-ui="enabled: false" renderer="logarithmicDepthBuffer: true;">
+        <a-scene cast-injector id="scene" emitevents="true" embedded arjs vr-mode-ui="enabled: false" renderer="logarithmicDepthBuffer: true; colorManagement: true;" gesture-detector>
             <a-entity id="injector" cursor="rayOrigin: mouse; fuseTimeout: 0;" raycaster="objects: .clickable"></a-entity>
-            <a-marker preset="hiro">
-                <a-entity id="model" position="0 0 0" scale="0.05 0.05 0.05" gltf-model="./model/book/scene.gltf"></a-entity>
-                <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0 0.1 -1.2" clickhandler></a-sphere>
-                <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0 0.1 -0.8" clickhandler></a-sphere>
-                <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0 0.1 -0.4" clickhandler></a-sphere>
-                <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0 0.1 0" clickhandler></a-sphere>
-                <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0 0.1 0.4" clickhandler></a-sphere>
-                <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0 0.1 0.8" clickhandler></a-sphere>
-                <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0 0.1 1.2" clickhandler></a-sphere>
-                <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="-0.4 0.1 -1.2" clickhandler></a-sphere>
-                <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="-0.4 0.1 -0.8" clickhandler></a-sphere>
-                <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="-0.4 0.1 -0.4" clickhandler></a-sphere>
-                <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="-0.4 0.1 0" clickhandler></a-sphere>
-                <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="-0.4 0.1 0.4" clickhandler></a-sphere>
-                <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="-0.4 0.1 0.8" clickhandler></a-sphere>
-                <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="-0.4 0.1 1.2" clickhandler></a-sphere>
-                <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0.4 0.1 -1.2" clickhandler></a-sphere>
-                <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0.4 0.1 -0.8" clickhandler></a-sphere>
-                <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0.4 0.1 -0.4" clickhandler></a-sphere>
-                <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0.4 0.1 0" clickhandler></a-sphere>
-                <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0.4 0.1 0.4" clickhandler></a-sphere>
-                <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0.4 0.1 0.8" clickhandler></a-sphere>
-                <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0.4 0.1 1.2" clickhandler></a-sphere>
+            <a-marker preset="hiro" rotation="0 0 0">
+                <a-entity id="main" gesture-handler landmark-injector>
+                    <a-entity id="bone" position="0 3 0" gltf-model="./model/bone/SkelBone.gltf" ></a-entity>
+                    <a-entity id="tendon" position="0 3 0" gltf-model="./model/tendon_ligaments/TendLig.gltf" ></a-entity>
+                    <a-entity id="skin" position="0 3 0" gltf-model="./model/skin/KneeSkin.gltf" ></a-entity>
+                </a-entity>
             </a-marker>
             <a-entity camera></a-entity>
         </a-scene>
-    </body>
 
+    </body>
 </html>
