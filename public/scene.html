@@ -144,11 +144,13 @@
                     }
                     else if(message[1] == "show"){
                         showLandmarks = true;
-                        landmarks = document.getElementsByClassName("landmark")
+                        if(!skinVisible){
+                            landmarks = document.getElementsByClassName("landmark")
 
-                        Array.prototype.forEach.call(landmarks, function(landmark) {
-                            landmark.setAttribute("visible", true)
-                        })
+                            Array.prototype.forEach.call(landmarks, function(landmark) {
+                                landmark.setAttribute("visible", true)
+                            })
+                        }
                     }
                     else if(message[1] == "hide"){
                         showLandmarks = false;
@@ -157,6 +159,10 @@
                         Array.prototype.forEach.call(landmarks, function(landmark) {
                             landmark.setAttribute("visible", false)
                         })
+                    }
+                    else if (message[1] == "highlight"){
+                        landmark = document.getElementById(message[2]);
+                        landmark.click()
                     }
                 }
             })
