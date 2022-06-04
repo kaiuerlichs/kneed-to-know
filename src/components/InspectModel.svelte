@@ -65,6 +65,7 @@
     // Landmark popup variables
     let currentLandmark = "";
     let landmarkDesc = "";
+    let landmarkType = "";
     let showLandmarkPopup = false;
     let showLandmarkInfo = false;
     let showLandmarkList = false;
@@ -125,6 +126,7 @@
             if(el.id == message[2]){
                 currentLandmark = el.name
                 landmarkDesc = el.desc
+                landmarkType = "ligament"
             }
         })
         let bone = landmarks.layers.bone 
@@ -132,6 +134,7 @@
             if(el.id == message[2]){
                 currentLandmark = el.name
                 landmarkDesc = el.desc
+                landmarkType = "bone"
             }
         })
         let tendon = landmarks.layers.tendon
@@ -139,6 +142,7 @@
             if(el.id == message[2]){
                 currentLandmark = el.name
                 landmarkDesc = el.desc
+                landmarkType = "tendon"
             }
         })
 
@@ -260,11 +264,25 @@
     {#if showLandmarkPopup}
         <div class="invisible lg:visible" transition:fade>
             <div class="absolute bottom-10 left-10 flex flex-row backdrop-blur-sm bg-white/30 text-white rounded-[20px] z-20 p-5 align-middle w-1/3" on:click={() => {closeOverlays(); showLandmarkInfo=true;}}>
-                <div class="backdrop-blur-sm bg-[#D2FCAC] text-black rounded-[20px] z-20 cursor-pointer my-auto">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 m-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                </div>
+                {#if landmarkType == "bone"}
+                        <div class="backdrop-blur-sm bg-[#D2FCAC] text-black rounded-[20px] z-20 cursor-pointer my-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 m-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                    {:else if landmarkType == "ligament"}
+                        <div class="backdrop-blur-sm bg-[#96C9DC] text-black rounded-[20px] z-20 cursor-pointer my-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 m-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                    {:else if landmarkType == "tendon"}
+                        <div class="backdrop-blur-sm bg-[#AA8FB7] text-white rounded-[20px] z-20 cursor-pointer my-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 m-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                    {/if}
                 <span class="text-xl mx-5 my-auto">
                     {currentLandmark}
                 </span>
@@ -278,11 +296,25 @@
         <div class="visible lg:invisible" transition:fade>
             <div class="w-3/4 h-full mx-auto">
                 <div class="fixed bottom-32 flex flex-row backdrop-blur-sm bg-white/30 text-white rounded-[20px] z-20 p-5 align-middle w-3/4 mx-auto" on:click={() => {closeOverlays(); showLandmarkInfo=true;}}>
-                    <div class="backdrop-blur-sm bg-[#D2FCAC] text-black rounded-[12px] z-20 cursor-pointer my-auto">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 m-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                    </div>
+                    {#if landmarkType == "bone"}
+                        <div class="backdrop-blur-sm bg-[#D2FCAC] text-black rounded-[12px] z-20 cursor-pointer my-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 m-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                    {:else if landmarkType == "ligament"}
+                        <div class="backdrop-blur-sm bg-[#96C9DC] text-black rounded-[12px] z-20 cursor-pointer my-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 m-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                    {:else if landmarkType == "tendon"}
+                        <div class="backdrop-blur-sm bg-[#AA8FB7] text-white rounded-[12px] z-20 cursor-pointer my-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 m-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                    {/if}
                     <span class="text-lg mx-5 my-auto">
                         {currentLandmark}
                     </span>
