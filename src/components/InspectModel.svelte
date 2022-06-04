@@ -120,8 +120,8 @@
         // Find correct landmark in json database
         let message = param.data.split(";")
 
-        let skin = landmarks.layers.skin 
-        skin.forEach(el => {
+        let ligament = landmarks.layers.ligament 
+        ligament.forEach(el => {
             if(el.id == message[2]){
                 currentLandmark = el.name
                 landmarkDesc = el.desc
@@ -230,11 +230,11 @@
     <!-- Landmark info code -->
     {#if showLandmarkInfo}
         <div class="absolute w-full lg:w-5/12 h-full z-40 flex flex-col" transition:fade>
-            <div class="m-10 h-full p-10 bg-white rounded-[20px] drop-shadow-lg overflow-y-scroll">
+            <div class="m-10 h-full p-10 bg-white rounded-[20px] drop-shadow-lg">
                 <TitleBar text={currentLandmark} on:close={() => {showLandmarkInfo=false;}} />
-                <p>
-                    {landmarkDesc}
-                </p>
+                {#each landmarkDesc as paragraph}
+                    <p>{paragraph}</p>
+                {/each}
             </div>
         </div>
     {/if}
