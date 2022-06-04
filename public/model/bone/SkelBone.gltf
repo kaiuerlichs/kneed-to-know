@@ -15,7 +15,7 @@
     "nodes" : [
         {
             "mesh" : 0,
-            "name" : "Bone_low",
+            "name" : "BoneTrim_low",
             "rotation" : [
                 0.7071068286895752,
                 0,
@@ -49,7 +49,7 @@
     ],
     "meshes" : [
         {
-            "name" : "Mesh",
+            "name" : "Mesh.003",
             "primitives" : [
                 {
                     "attributes" : {
@@ -98,58 +98,58 @@
         {
             "bufferView" : 0,
             "componentType" : 5126,
-            "count" : 1684,
+            "count" : 1297,
             "max" : [
                 45.21678161621094,
                 62.62059020996094,
-                306.7573547363281
+                229.13323974609375
             ],
             "min" : [
                 -44.65128707885742,
-                -53.23210144042969,
-                -296.62860107421875
+                -40.501522064208984,
+                -257.57421875
             ],
             "type" : "VEC3"
         },
         {
             "bufferView" : 1,
             "componentType" : 5126,
-            "count" : 1684,
+            "count" : 1297,
             "type" : "VEC3"
         },
         {
             "bufferView" : 2,
             "componentType" : 5126,
-            "count" : 1684,
+            "count" : 1297,
             "type" : "VEC2"
         },
         {
             "bufferView" : 3,
             "componentType" : 5123,
-            "count" : 8784,
+            "count" : 6729,
             "type" : "SCALAR"
         }
     ],
     "bufferViews" : [
         {
             "buffer" : 0,
-            "byteLength" : 20208,
+            "byteLength" : 15564,
             "byteOffset" : 0
         },
         {
             "buffer" : 0,
-            "byteLength" : 20208,
-            "byteOffset" : 20208
+            "byteLength" : 15564,
+            "byteOffset" : 15564
         },
         {
             "buffer" : 0,
-            "byteLength" : 13472,
-            "byteOffset" : 40416
+            "byteLength" : 10376,
+            "byteOffset" : 31128
         },
         {
             "buffer" : 0,
-            "byteLength" : 17568,
-            "byteOffset" : 53888
+            "byteLength" : 13458,
+            "byteOffset" : 41504
         }
     ],
     "samplers" : [
@@ -160,8 +160,8 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 71456,
-            "uri" : "SkelBone.bin"
+            "byteLength" : 54964,
+            "uri" : "Texture to glft.bin"
         }
     ]
 }
