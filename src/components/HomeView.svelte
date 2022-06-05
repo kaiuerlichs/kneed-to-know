@@ -28,7 +28,7 @@
             <LargeButton text="List of landmarks" dest="landmarksList" colourA="#4A7856" colourB="#94FBAB" on:transition/>
         </div>
         <div>
-            <LargeButton text="Examination outline" dest="examOutline" colourB="#08BDBD " colourA="#5296A5" on:transition/>
+            <LargeButton text="Tutorial and resources" dest="tutorial" colourB="#08BDBD " colourA="#5296A5" on:transition/>
         </div>
         <div>
             <LargeButton text="About this app" dest="about" colourB="#9C7CA5" colourA="#896279" on:transition/>

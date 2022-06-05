@@ -5,7 +5,7 @@
 	import ExamModel from "./components/ExamModel.svelte"
 	import CoopModel from "./components/CoopModel.svelte"
 	import LandmarkList from "./components/LandmarkList.svelte"
-	import ExamOutline from "./components/ExamOutline.svelte";
+	import Tutorial from "./components/Tutorial.svelte";
 	import AboutView from "./components/AboutView.svelte";
 	
 	import {fade} from "svelte/transition"
@@ -37,9 +37,9 @@
 		<div class="h-full w-full" on:outroend={onOutro} transition:fade>
 			<LandmarkList on:close={() => transitionTo("main")}/>
 		</div>
-	{:else if $state == "examOutline"}
+	{:else if $state == "tutorial"}
 		<div class="h-full w-full" on:outroend={onOutro} transition:fade>
-			<ExamOutline on:close={() => transitionTo("main")}/>
+			<Tutorial on:close={() => transitionTo("main")}/>
 		</div>
 	{:else if $state == "about"}
 		<div class="h-full w-full" on:outroend={onOutro} transition:fade>
