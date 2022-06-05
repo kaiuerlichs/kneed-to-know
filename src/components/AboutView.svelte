@@ -22,11 +22,11 @@
                 <h1 class="heading text-4xl text-center py-2">Team Anatomy</h1>
                 <div class="grid grid-cols-2 items-center py-4">
                     <div class="w-full">
-                        <img class="rounded-full mx-auto h-24 drop-shadow-lg" src="https://picsum.photos/id/1011/200/200" alt="">
+                        <img class="rounded-full mx-auto h-24 w-24 object-cover drop-shadow-lg" src="/images/wannee.jpeg" alt="">
                         <h1 class="heading text-2xl pt-2 text-center">Wan Nee Shue</h1>
                     </div>
                     <div class="w-full">
-                        <img class="rounded-full mx-auto h-24 drop-shadow-lg" src="https://picsum.photos/id/1004/200/200" alt="">
+                        <img class="rounded-full mx-auto h-24 w-24 object-cover drop-shadow-lg" src="https://picsum.photos/id/1062/200/200" alt="">
                         <h1 class="heading text-2xl pt-2 text-center">Celine Shaoyan Wang</h1>
                     </div>
                 </div>
@@ -38,15 +38,15 @@
                 <h1 class="heading text-4xl text-center py-2">Team Artists</h1>
                 <div class="grid grid-cols-3 items-center py-4">
                     <div class="w-full">
-                        <img class="rounded-full mx-auto h-24 drop-shadow-lg" src="https://picsum.photos/id/1025/200/200" alt="">
+                        <img class="rounded-full mx-auto h-24 w-24 object-cover drop-shadow-lg" src="https://picsum.photos/id/1025/200/200" alt="">
                         <h1 class="heading text-2xl pt-2 text-center">Sofia Nahman</h1>
                     </div>
                     <div class="w-full">
-                        <img class="rounded-full mx-auto h-24 drop-shadow-lg" src="https://picsum.photos/id/1044/200/200" alt="">
+                        <img class="rounded-full mx-auto h-24 w-24 object-cover drop-shadow-lg" src="/images/ruby.jpeg" alt="">
                         <h1 class="heading text-2xl pt-2 text-center">Ruby Mengtian Lu</h1>
                     </div>
                     <div class="w-full">
-                        <img class="rounded-full mx-auto h-24 drop-shadow-lg" src="https://picsum.photos/id/1062/200/200" alt="">
+                        <img class="rounded-full mx-auto h-24 w-24 object-cover drop-shadow-lg" src="/images/kelly.jpeg" alt="">
                         <h1 class="heading text-2xl pt-2 text-center">Kelly Clayton</h1>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                 <h1 class="heading text-4xl text-center py-2">Team Coders</h1>
                 <div class="grid grid-cols-1 items-center py-4">
                     <div class="w-full">
-                        <img class="rounded-full mx-auto h-24 drop-shadow-lg" src="https://picsum.photos/id/1042/200/200" alt="">
+                        <img class="rounded-full mx-auto h-24 w-24 object-cover drop-shadow-lg" src="/images/kai.jpeg" alt="">
                         <h1 class="heading text-2xl pt-2 text-center">Kai Uerlichs</h1>
                     </div>
                 </div>
