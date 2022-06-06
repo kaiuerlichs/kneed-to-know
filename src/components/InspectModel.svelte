@@ -12,6 +12,23 @@
     // AR ready guard
     let ready = false;
 
+    // Load landmarks data
+    let landmarks = ""
+    let landmarkArr = []
+    fetch("/med_data/landmarks.json")
+    .then(response => response.text())
+    .then((data) => {
+        landmarks = JSON.parse(data)
+
+        Object.entries(landmarks.layers).forEach(([key, value]) => {
+            for(let landmark of value){
+                landmarkArr.push(landmark)
+            }
+        })
+
+        landmarkArr.sort((a, b) => a.name.localeCompare(b.name))
+    })
+
     // Layer activity variables
     let showLayersMenu = false;
     let layerSkinActive = true;
@@ -19,6 +36,7 @@
     let layerTendActive = true;
     let showLandmarks = true;
 
+    // Handle layer changes
     $: {
         if(ready){
             if(layerSkinActive){
@@ -47,15 +65,23 @@
     // Landmark popup variables
     let currentLandmark = "";
     let landmarkDesc = "";
-    let layerType = "";
+    let landmarkType = "";
     let showLandmarkPopup = false;
     let showLandmarkInfo = false;
+    let showLandmarkList = false;
 
     // Function to dispatch close event
     function closeView(){
         dispatch("close")
     }
 
+    function closeOverlays(){
+        showLandmarkInfo = false;
+        showLandmarkList = false;
+        showLayersMenu = false;
+    }
+
+    // Toggle landmark visibility
     function toggleLandmarks(){
         if(showLandmarks){
             showLandmarks = false;
@@ -79,6 +105,12 @@
         sendSignal("landmark;reset")
     }
 
+    function goToLandmark(id){
+        sendSignal("landmark;highlight;"+id)
+        layerSkinActive = false;
+        showLandmarkList = false;
+    }
+
     // Function to handle ready event from AR scene
     window.addEventListener("nodesReady", () => {
         ready = true;
@@ -88,41 +120,37 @@
     window.addEventListener("message", (param) => {
         // Find correct landmark in json database
         let message = param.data.split(";")
-        fetch("/med_data/landmarks.json")
-        .then(response => response.text())
-        .then((data) => {
-            let landmarks = JSON.parse(data)
 
-            let skin = landmarks.layers.skin 
-            skin.forEach(el => {
-                if(el.id == message[2]){
-                    currentLandmark = el.name
-                    landmarkDesc = el.desc
-                    layerType = "skin"
-                }
-            })
-            let bone = landmarks.layers.bone 
-            bone.forEach(el => {
-                if(el.id == message[2]){
-                    currentLandmark = el.name
-                    landmarkDesc = el.desc
-                    layerType = "bone"
-                }
-            })
-            let tendon = landmarks.layers.tendon
-            tendon.forEach(el => {
-                if(el.id == message[2]){
-                    currentLandmark = el.name
-                    landmarkDesc = el.desc
-                    layerType = "tendon"
-                }
-            })
-
-            if(currentLandmark != ""){
-                showLandmarkPopup = true;
+        let ligament = landmarks.layers.ligament 
+        ligament.forEach(el => {
+            if(el.id == message[2]){
+                currentLandmark = el.name
+                landmarkDesc = el.desc
+                landmarkType = "ligament"
             }
         })
+        let bone = landmarks.layers.bone 
+        bone.forEach(el => {
+            if(el.id == message[2]){
+                currentLandmark = el.name
+                landmarkDesc = el.desc
+                landmarkType = "bone"
+            }
+        })
+        let tendon = landmarks.layers.tendon
+        tendon.forEach(el => {
+            if(el.id == message[2]){
+                currentLandmark = el.name
+                landmarkDesc = el.desc
+                landmarkType = "tendon"
+            }
+        })
+
+        if(currentLandmark != ""){
+            showLandmarkPopup = true;
+        }
     })
+
 </script>
 
 <div class="h-full w-full relative bg-black">
@@ -153,7 +181,7 @@
             </svg>
         </div>
         <div class="absolute bottom-10 inset-center align-middle backdrop-blur-sm bg-white/30 text-white rounded-[20px] z-20 grid grid-cols-3">
-            <div>
+            <div on:click={() => {closeOverlays(); showLandmarkList = showLandmarkList ? false : true;}}>
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 m-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -171,7 +199,7 @@
                     </svg>
                 {/if}
             </div>
-            <div on:click={() => {showLayersMenu = showLayersMenu ? false : true;}} class="cursor-pointer">
+            <div on:click={() => {closeOverlays(); showLayersMenu = showLayersMenu ? false : true;}} class="cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 m-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
@@ -208,9 +236,26 @@
         <div class="absolute w-full lg:w-5/12 h-full z-40 flex flex-col" transition:fade>
             <div class="m-10 h-full p-10 bg-white rounded-[20px] drop-shadow-lg">
                 <TitleBar text={currentLandmark} on:close={() => {showLandmarkInfo=false;}} />
-                <p>
-                    {landmarkDesc}
-                </p>
+                {#each landmarkDesc as paragraph}
+                    <p>{paragraph}</p>
+                {/each}
+            </div>
+        </div>
+    {/if}
+
+    <!-- Landmark list code -->
+    {#if showLandmarkList}
+        <div class="absolute w-full lg:w-5/12 h-full z-40 flex flex-col" transition:fade>
+            <div class="m-10 h-full p-10 bg-white rounded-[20px] drop-shadow-lg">
+                <TitleBar text="All landmarks" on:close={() => {showLandmarkList=false;}} />
+                {#each landmarkArr as landmark}
+                    <h1 class="cursor-pointer text-lg py-1" on:click={() => {goToLandmark(landmark.id)}}>
+                        {landmark.name}
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-[1.125rem] translate-y-[-0.125rem] inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </h1>
+                {/each}
             </div>
         </div>
     {/if}
@@ -218,12 +263,26 @@
     <!-- Landmark Popup code -->
     {#if showLandmarkPopup}
         <div class="invisible lg:visible" transition:fade>
-            <div class="absolute bottom-10 left-10 flex flex-row backdrop-blur-sm bg-white/30 text-white rounded-[20px] z-20 p-5 align-middle w-1/3" on:click={() => {showLandmarkInfo=true;}}>
-                <div class="backdrop-blur-sm bg-[#D2FCAC] text-black rounded-[20px] z-20 cursor-pointer my-auto">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 m-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                </div>
+            <div class="absolute bottom-10 left-10 flex flex-row backdrop-blur-sm bg-white/30 text-white rounded-[20px] z-20 p-5 align-middle w-1/3" on:click={() => {closeOverlays(); showLandmarkInfo=true;}}>
+                {#if landmarkType == "bone"}
+                        <div class="backdrop-blur-sm bg-[#D2FCAC] text-black rounded-[20px] z-20 cursor-pointer my-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 m-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                    {:else if landmarkType == "ligament"}
+                        <div class="backdrop-blur-sm bg-[#96C9DC] text-black rounded-[20px] z-20 cursor-pointer my-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 m-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                    {:else if landmarkType == "tendon"}
+                        <div class="backdrop-blur-sm bg-[#AA8FB7] text-white rounded-[20px] z-20 cursor-pointer my-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 m-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                    {/if}
                 <span class="text-xl mx-5 my-auto">
                     {currentLandmark}
                 </span>
@@ -236,12 +295,26 @@
         </div>
         <div class="visible lg:invisible" transition:fade>
             <div class="w-3/4 h-full mx-auto">
-                <div class="fixed bottom-32 flex flex-row backdrop-blur-sm bg-white/30 text-white rounded-[20px] z-20 p-5 align-middle w-3/4 mx-auto" on:click={() => {showLandmarkInfo=true;}}>
-                    <div class="backdrop-blur-sm bg-[#D2FCAC] text-black rounded-[12px] z-20 cursor-pointer my-auto">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 m-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                    </div>
+                <div class="fixed bottom-32 flex flex-row backdrop-blur-sm bg-white/30 text-white rounded-[20px] z-20 p-5 align-middle w-3/4 mx-auto" on:click={() => {closeOverlays(); showLandmarkInfo=true;}}>
+                    {#if landmarkType == "bone"}
+                        <div class="backdrop-blur-sm bg-[#D2FCAC] text-black rounded-[12px] z-20 cursor-pointer my-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 m-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                    {:else if landmarkType == "ligament"}
+                        <div class="backdrop-blur-sm bg-[#96C9DC] text-black rounded-[12px] z-20 cursor-pointer my-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 m-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                    {:else if landmarkType == "tendon"}
+                        <div class="backdrop-blur-sm bg-[#AA8FB7] text-white rounded-[12px] z-20 cursor-pointer my-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 m-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                    {/if}
                     <span class="text-lg mx-5 my-auto">
                         {currentLandmark}
                     </span>

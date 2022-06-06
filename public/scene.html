@@ -22,7 +22,15 @@
                         landmarks = document.getElementsByClassName("landmark")
 
                         Array.prototype.forEach.call(landmarks, function(landmark) {
-                            landmark.setAttribute('material', 'color: #D2FCAC;')
+                            if(landmark.hasAttribute("bone")){
+                                landmark.setAttribute('material', 'color: #D2FCAC;')
+                            }
+                            else if(landmark.hasAttribute("ligament")){
+                                landmark.setAttribute('material', 'color: #96C9DC;')
+                            }
+                            else if(landmark.hasAttribute("tendon")){
+                                landmark.setAttribute('material', 'color: #8D6A9F;')
+                            }
                         })
                         
                         this.el.setAttribute('material', 'color: #F08CAE;');
@@ -60,6 +68,33 @@
                             mark.setAttribute("clickhandler", "")
                             mark.setAttribute("material", "opacity: 0.5; transparent: true")
                             mark.setAttribute("visible", false)
+                            mark.setAttribute("bone", "")
+                            entity.appendChild(mark)
+                        });
+                        landmarks.layers.ligament.forEach(element => {
+                            let mark = document.createElement("a-sphere")
+                            mark.setAttribute("id", element.id)
+                            mark.setAttribute("class", "landmark clickable")
+                            mark.setAttribute("color", "#96C9DC")
+                            mark.setAttribute("radius", "0.12")
+                            mark.setAttribute("position", element.coord)
+                            mark.setAttribute("clickhandler", "")
+                            mark.setAttribute("material", "opacity: 0.5; transparent: true")
+                            mark.setAttribute("visible", false)
+                            mark.setAttribute("ligament", "")
+                            entity.appendChild(mark)
+                        });
+                        landmarks.layers.tendon.forEach(element => {
+                            let mark = document.createElement("a-sphere")
+                            mark.setAttribute("id", element.id)
+                            mark.setAttribute("class", "landmark clickable")
+                            mark.setAttribute("color", "#8D6A9F")
+                            mark.setAttribute("radius", "0.12")
+                            mark.setAttribute("position", element.coord)
+                            mark.setAttribute("clickhandler", "")
+                            mark.setAttribute("material", "opacity: 0.5; transparent: true")
+                            mark.setAttribute("visible", false)
+                            mark.setAttribute("tendon", "")
                             entity.appendChild(mark)
                         });
                     })
@@ -139,16 +174,26 @@
                         landmarks = document.getElementsByClassName("landmark")
 
                         Array.prototype.forEach.call(landmarks, function(landmark) {
-                            landmark.setAttribute('material', 'color: #D2FCAC;')
+                            if(landmark.hasAttribute("bone")){
+                                landmark.setAttribute('material', 'color: #D2FCAC;')
+                            }
+                            else if(landmark.hasAttribute("ligament")){
+                                landmark.setAttribute('material', 'color: #96C9DC;')
+                            }
+                            else if(landmark.hasAttribute("tendon")){
+                                landmark.setAttribute('material', 'color: #8D6A9F;')
+                            }
                         })
                     }
                     else if(message[1] == "show"){
                         showLandmarks = true;
-                        landmarks = document.getElementsByClassName("landmark")
+                        if(!skinVisible){
+                            landmarks = document.getElementsByClassName("landmark")
 
-                        Array.prototype.forEach.call(landmarks, function(landmark) {
-                            landmark.setAttribute("visible", true)
-                        })
+                            Array.prototype.forEach.call(landmarks, function(landmark) {
+                                landmark.setAttribute("visible", true)
+                            })
+                        }
                     }
                     else if(message[1] == "hide"){
                         showLandmarks = false;
@@ -157,6 +202,10 @@
                         Array.prototype.forEach.call(landmarks, function(landmark) {
                             landmark.setAttribute("visible", false)
                         })
+                    }
+                    else if (message[1] == "highlight"){
+                        landmark = document.getElementById(message[2]);
+                        landmark.click()
                     }
                 }
             })

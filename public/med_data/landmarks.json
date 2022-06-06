@@ -3,66 +3,111 @@
         "bone": [
             {
                 "id": "0",
-                "name": "Lateral epicondyle of femur",
-                "coord": "-0.410 3.673 0.170",
-                "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Euismod lacinia at quis risus sed vulputate odio. Amet risus nullam eget felis. Aliquam vestibulum morbi blandit cursus. Lectus nulla at volutpat diam ut venenatis tellus. Gravida arcu ac tortor dignissim convallis aenean et tortor. Commodo elit at imperdiet dui accumsan sit amet. At lectus urna duis convallis convallis. Ipsum dolor sit amet consectetur. Ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Turpis egestas maecenas pharetra convallis posuere morbi. Sagittis nisl rhoncus mattis rhoncus urna. Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus. Vulputate sapien nec sagittis aliquam malesuada. Venenatis tellus in metus vulputate eu."
+                "name": "Patella",
+                "coord": "0.048 3.705 0.697",
+                "desc": [
+                    "The patella is articulated with the femur to protect the anterior articular surface of the knee joint, giving attachment to the patellar ligament and quadriceps tendon.",
+                    "Patella fracture commonly occurs as a consequence of direct trauma to the knee, for example when hit against the dashboard in a vehicle collision."
+                ]
             },
             {
                 "id": "1",
-                "name": "Medial epicondyle of femur",
-                "coord": "0.411 3.621 -0.049",
-                "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Euismod lacinia at quis risus sed vulputate odio. Amet risus nullam eget felis. Aliquam vestibulum morbi blandit cursus. Lectus nulla at volutpat diam ut venenatis tellus. Gravida arcu ac tortor dignissim convallis aenean et tortor. Commodo elit at imperdiet dui accumsan sit amet. At lectus urna duis convallis convallis. Ipsum dolor sit amet consectetur. Ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Turpis egestas maecenas pharetra convallis posuere morbi. Sagittis nisl rhoncus mattis rhoncus urna. Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus. Vulputate sapien nec sagittis aliquam malesuada. Venenatis tellus in metus vulputate eu."
+                "name": "Medial femoral condyle",
+                "coord": "0.240 3.404 -0.178",
+                "desc": [
+                    "The femoral condyles are covered by articular cartilage and function as a shock absorber for the knee.",
+                    "The medial and lateral femoral condyles serve as important bony landmarks and palpation points as they are also the origin and insertion of ACL and PCL."
+                ]
             },
             {
                 "id": "2",
-                "name": "Head of fibula",
-                "coord": "-0.387 2.806 -0.187",
-                "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Euismod lacinia at quis risus sed vulputate odio. Amet risus nullam eget felis. Aliquam vestibulum morbi blandit cursus. Lectus nulla at volutpat diam ut venenatis tellus. Gravida arcu ac tortor dignissim convallis aenean et tortor. Commodo elit at imperdiet dui accumsan sit amet. At lectus urna duis convallis convallis. Ipsum dolor sit amet consectetur. Ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Turpis egestas maecenas pharetra convallis posuere morbi. Sagittis nisl rhoncus mattis rhoncus urna. Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus. Vulputate sapien nec sagittis aliquam malesuada. Venenatis tellus in metus vulputate eu."
+                "name": "Lateral femoral condyle",
+                "coord": "-0.181 3.436 -0.147",
+                "desc": [
+                    "The femoral condyles are covered by articular cartilage and function as a shock absorber for the knee.",
+                    "The medial and lateral femoral condyles serve as important bony landmarks and palpation points as they are also the origin and insertion of ACL and PCL."
+                ]
             },
             {
                 "id": "3",
                 "name": "Medial tibial condyle",
-                "coord": "0.437 3.160 0.211",
-                "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Euismod lacinia at quis risus sed vulputate odio. Amet risus nullam eget felis. Aliquam vestibulum morbi blandit cursus. Lectus nulla at volutpat diam ut venenatis tellus. Gravida arcu ac tortor dignissim convallis aenean et tortor. Commodo elit at imperdiet dui accumsan sit amet. At lectus urna duis convallis convallis. Ipsum dolor sit amet consectetur. Ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Turpis egestas maecenas pharetra convallis posuere morbi. Sagittis nisl rhoncus mattis rhoncus urna. Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus. Vulputate sapien nec sagittis aliquam malesuada. Venenatis tellus in metus vulputate eu."
+                "coord": "0.217 3.033 -0.199",
+                "desc": [
+                    "The medial and lateral tibial condyles combine to form the flat surface of the inner surface of the tibia. They are also closely related to ACL and PCL."
+                ]
             },
             {
                 "id": "4",
                 "name": "Lateral tibial condyle",
-                "coord": "-0.383 3.105 0.075",
-                "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Euismod lacinia at quis risus sed vulputate odio. Amet risus nullam eget felis. Aliquam vestibulum morbi blandit cursus. Lectus nulla at volutpat diam ut venenatis tellus. Gravida arcu ac tortor dignissim convallis aenean et tortor. Commodo elit at imperdiet dui accumsan sit amet. At lectus urna duis convallis convallis. Ipsum dolor sit amet consectetur. Ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Turpis egestas maecenas pharetra convallis posuere morbi. Sagittis nisl rhoncus mattis rhoncus urna. Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus. Vulputate sapien nec sagittis aliquam malesuada. Venenatis tellus in metus vulputate eu."
+                "coord": "-0.272 3.105 -0.202",
+                "desc": [
+                    "The medial and lateral tibial condyles combine to form the flat surface of the inner surface of the tibia. They are also closely related to ACL and PCL."
+                ]
             },
             {
                 "id": "5",
-                "name": "Medial surface of tibia",
-                "coord": "0.159 1.711 0.198",
-                "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Euismod lacinia at quis risus sed vulputate odio. Amet risus nullam eget felis. Aliquam vestibulum morbi blandit cursus. Lectus nulla at volutpat diam ut venenatis tellus. Gravida arcu ac tortor dignissim convallis aenean et tortor. Commodo elit at imperdiet dui accumsan sit amet. At lectus urna duis convallis convallis. Ipsum dolor sit amet consectetur. Ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Turpis egestas maecenas pharetra convallis posuere morbi. Sagittis nisl rhoncus mattis rhoncus urna. Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus. Vulputate sapien nec sagittis aliquam malesuada. Venenatis tellus in metus vulputate eu."
-            },
+                "name": "Tibial tuberosity",
+                "coord": "-0.003 2.687 0.302",
+                "desc": [
+                    "The tibial tuberosity is a prominent bony landmark on the top of the tibia where the patellar tendon connects. It gives attachment to the patellar ligament.",
+                    "Tibial tuberosity fractures are infrequent fractures, most common in adolescents during running and jumping movements."
+                ]
+            }
+        ],
+        "ligament": [
             {
                 "id": "6",
-                "name": "Anterior border of tibia",
-                "coord": "-0.064 2.171 0.305",
-                "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Euismod lacinia at quis risus sed vulputate odio. Amet risus nullam eget felis. Aliquam vestibulum morbi blandit cursus. Lectus nulla at volutpat diam ut venenatis tellus. Gravida arcu ac tortor dignissim convallis aenean et tortor. Commodo elit at imperdiet dui accumsan sit amet. At lectus urna duis convallis convallis. Ipsum dolor sit amet consectetur. Ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Turpis egestas maecenas pharetra convallis posuere morbi. Sagittis nisl rhoncus mattis rhoncus urna. Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus. Vulputate sapien nec sagittis aliquam malesuada. Venenatis tellus in metus vulputate eu."
+                "name": "Lateral collateral ligament",
+                "coord": "-0.441 3.186 0.023",
+                "desc": [
+                    "The lateral collateral ligament is one of the major stabilizers of the knee joint and connects the femur to the fibula.",
+                    "LCL is rarely injured alone and is often involved in lateral knee structural injuries with ACL and PCL."
+                ]
             },
             {
                 "id": "7",
-                "name": "Anterolateral tibial tubercle",
-                "coord": "-0.337 3.164 0.342",
-                "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Euismod lacinia at quis risus sed vulputate odio. Amet risus nullam eget felis. Aliquam vestibulum morbi blandit cursus. Lectus nulla at volutpat diam ut venenatis tellus. Gravida arcu ac tortor dignissim convallis aenean et tortor. Commodo elit at imperdiet dui accumsan sit amet. At lectus urna duis convallis convallis. Ipsum dolor sit amet consectetur. Ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Turpis egestas maecenas pharetra convallis posuere morbi. Sagittis nisl rhoncus mattis rhoncus urna. Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus. Vulputate sapien nec sagittis aliquam malesuada. Venenatis tellus in metus vulputate eu."
+                "name": "Medial collateral ligament",
+                "coord": "0.455 3.155 0.080",
+                "desc": [
+                    "The medial collateral ligament connects the femur to the tibia.",
+                    "MCL injury is usually caused by the knee being pushed inwards or twisting in activities such as skiing or swimming."
+                ]
             },
             {
                 "id": "8",
-                "name": "Patella",
-                "coord": "0.048 3.705 0.697",
-                "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Euismod lacinia at quis risus sed vulputate odio. Amet risus nullam eget felis. Aliquam vestibulum morbi blandit cursus. Lectus nulla at volutpat diam ut venenatis tellus. Gravida arcu ac tortor dignissim convallis aenean et tortor. Commodo elit at imperdiet dui accumsan sit amet. At lectus urna duis convallis convallis. Ipsum dolor sit amet consectetur. Ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Turpis egestas maecenas pharetra convallis posuere morbi. Sagittis nisl rhoncus mattis rhoncus urna. Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus. Vulputate sapien nec sagittis aliquam malesuada. Venenatis tellus in metus vulputate eu."
+                "name": "Patellar ligament",
+                "coord": "0.019 3.176 0.573",
+                "desc": [
+                    "The patellar ligament is the distal portion of the common tendon of the quadriceps femoris.The patellar tendon can be injured in a patellar tendon rupture. It can also be used as a tissue source in the repair of other ligaments such as ACL."
+                ]
             },
             {
                 "id": "9",
-                "name": "Tibial tuberosity",
-                "coord": "0.027 2.972 0.427",
-                "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Euismod lacinia at quis risus sed vulputate odio. Amet risus nullam eget felis. Aliquam vestibulum morbi blandit cursus. Lectus nulla at volutpat diam ut venenatis tellus. Gravida arcu ac tortor dignissim convallis aenean et tortor. Commodo elit at imperdiet dui accumsan sit amet. At lectus urna duis convallis convallis. Ipsum dolor sit amet consectetur. Ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Turpis egestas maecenas pharetra convallis posuere morbi. Sagittis nisl rhoncus mattis rhoncus urna. Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et netus. Vulputate sapien nec sagittis aliquam malesuada. Venenatis tellus in metus vulputate eu."
+                "name": "Anterior cruciate ligament",
+                "coord": "-0.088 3.350 -0.147",
+                "desc": [
+                    "The anterior cruciate ligament is one of the key ligaments that help stabilise the knee joint, and it connects the femur to the tibia. It is the most commonly injured ligament, especially during sports that involve sudden stops and changes in direction-such as basketball, soccer, tennis and volleyball."
+                ]
+            },
+            {
+                "id": "10",
+                "name": "Posterior cruciate ligament",
+                "coord": "0.074 3.155 -0.199",
+                "desc": [
+                    "The posterior cruciate ligament connects the femur to the back of the tibia. It usually takes a powerful force to injure the posterior cruciate ligament, often caused by a direct blow to the front of the knee when it’s bent, which extends it beyond the normal range of movement."
+                ]
             }
         ],
-        "skin": [],
-        "tendon": []
+        "tendon": [
+            {
+                "id": "11",
+                "name": "Quadriceps tendon",
+                "coord": "0.048 4.193 0.535",
+                "desc": [
+                    "The quadriceps tendon attaches the quadriceps to the top of the patella.",
+                    "Quadriceps tendon rupture is a rare but serious injury and is related to age and multiple medical comorbidities."
+                ]
+            }
+        ]
     }
 }
